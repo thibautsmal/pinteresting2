@@ -1,10 +1,13 @@
 <div class="jumbotron center">
      <h1>Bienvenue sur votations.be!</h1>
-     <p>
-       <%= link_to "Log in", "#", class: "btn btn-default btn-lg" %>
-       <%= link_to "Sign up", "#", class: "btn btn-primary btn-lg" %>
-  </p>    Ceci n'est pas un site de pétitions, ceci est une plateforme de décision.
-  </p>   Réinventons la démocratie
-  </p>   Seuls vous, avez le pouvoir
+     <% if user_signed_in? %>
+          l'Etat, c'est vous.
+     <% else %>
+     	<p>
+       		<%= link_to "Log in", new_user_session_path, class: "btn btn-default btn-lg" %>
+       		<%= link_to "Sign up", new_user_registration_path, class: "btn btn-primary btn-lg" %>
+     <% end %>  
   </p>   Réinventons la démocratie
 </div>
+
+
